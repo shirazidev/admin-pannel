@@ -1,4 +1,7 @@
 from django.contrib import admin
 from .models import iteams
-# Register your models here.
-admin.site.register(iteams)
+from import_export.admin import ImportExportActionModelAdmin
+
+@admin.register(iteams)
+class iteamsAdmin(ImportExportActionModelAdmin):
+    list_display = ('name', 'info')
